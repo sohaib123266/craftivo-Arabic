@@ -1,0 +1,107 @@
+/* Arabic / RTL refinements */
+:root {
+  --default-font: "Cairo", Tahoma, Arial, sans-serif;
+  --heading-font: "Cairo", Tahoma, Arial, sans-serif;
+  --nav-font: "Cairo", Tahoma, Arial, sans-serif;
+}
+
+html[dir="rtl"],
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Keep the Arabic navigation natural while preserving the existing design. */
+html[dir="rtl"] .header .logo {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+html[dir="rtl"] .navmenu ul {
+  direction: rtl;
+}
+
+/* Academic timeline: move the rail and markers to the right in RTL. */
+html[dir="rtl"] .resume .education-section .education-timeline .timeline-track {
+  padding-left: 0;
+  padding-right: 2.5rem;
+}
+
+html[dir="rtl"] .resume .education-section .education-timeline .timeline-track::before {
+  left: auto;
+  right: 10px;
+}
+
+html[dir="rtl"] .resume .education-section .education-timeline .timeline-track .timeline-item .timeline-marker {
+  left: auto;
+  right: -3.5rem;
+}
+
+html[dir="rtl"] .resume .education-section .education-timeline .timeline-track .timeline-item .timeline-content:hover {
+  transform: translateX(-5px);
+}
+
+html[dir="rtl"] .resume .education-section .education-timeline .timeline-track .timeline-item .timeline-content .achievement {
+  border-left: 0;
+  border-right: 3px solid var(--accent-color);
+}
+
+/* Featured service ribbon should originate from the left in Arabic. */
+html[dir="rtl"] .services .featured-tag {
+  right: auto;
+  left: -30px;
+  transform: rotate(-45deg);
+}
+
+html[dir="rtl"] .services .service-item::before {
+  transform-origin: right;
+}
+
+/* Directional arrows should point left in RTL. */
+html[dir="rtl"] .services .read-more i,
+html[dir="rtl"] .portfolio .portfolio-details i,
+html[dir="rtl"] .portfolio .btn-accent i {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .services .service-item:hover .read-more i {
+  transform: scaleX(-1) translateX(-5px);
+}
+
+/* Place the back-to-top control on the left for Arabic. */
+html[dir="rtl"] .scroll-top {
+  right: auto;
+  left: 15px;
+}
+
+/* Fix alignment for common flex rows in Arabic. */
+html[dir="rtl"] .resume .education-section .education-timeline .timeline-track .timeline-item .timeline-content .education-meta,
+html[dir="rtl"] .resume .education-section .education-timeline .timeline-track .timeline-item .timeline-content .certifications-list .cert-item {
+  direction: rtl;
+}
+
+html[dir="rtl"] .portfolio .portfolio-bottom .text-lg-end {
+  text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .resume .education-section .education-timeline .timeline-track {
+    padding-left: 0;
+    padding-right: 2rem;
+  }
+
+  html[dir="rtl"] .resume .education-section .education-timeline .timeline-track::before {
+    left: auto;
+    right: 20px;
+  }
+
+  html[dir="rtl"] .resume .education-section .education-timeline .timeline-track .timeline-item .timeline-marker {
+    left: auto;
+    right: -2.3rem;
+  }
+
+  html[dir="rtl"] .resume .education-section .education-timeline .timeline-track .timeline-item .timeline-content .education-meta,
+  html[dir="rtl"] .resume .education-section .education-timeline .timeline-track .timeline-item .timeline-content .certifications-list .cert-item {
+    align-items: flex-start;
+  }
+}
